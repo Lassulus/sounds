@@ -4,7 +4,7 @@
   };
 
   outputs =
-    { nixpkgs, ... }:
+    { nixpkgs, self, ... }:
     let
       systems = [
         "x86_64-linux"
@@ -16,6 +16,27 @@
     in
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          board-rofi = pkgs.writeShellApplication {
+            name = "board-rofi";
+            runtimeInputs = [
+              pkgs.coreutils
+              pkgs.findutils
+              pkgs.gnused
+              pkgs.rofi
+              pkgs.mpv
+              pkgs.systemd
+            ];
+            text = builtins.readFile ./bin/board-rofi.sh;
+          };
+        }
+      );
 
       devShells = forAllSystems (
         system:
