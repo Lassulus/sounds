@@ -1,0 +1,8 @@
+*.wav filter=annex annex.largefiles=anything
+*.mp3 filter=annex annex.largefiles=anything
+*.flac filter=annex annex.largefiles=anything
+*.ogg filter=annex annex.largefiles=anything
+*.opus filter=annex annex.largefiles=anything
+*.aac filter=annex annex.largefiles=anything
+*.m4a filter=annex annex.largefiles=anything
+*.aiff filter=annex annex.largefiles=anything
