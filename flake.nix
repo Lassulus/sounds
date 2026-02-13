@@ -36,6 +36,20 @@
         in
         {
           inherit play-sound;
+          board-fzf = pkgs.writeShellApplication {
+            name = "board-fzf";
+            runtimeInputs = [
+              pkgs.coreutils
+              pkgs.findutils
+              pkgs.fzf
+              pkgs.git
+              pkgs.git-annex
+              pkgs.gnused
+              pkgs.mpv
+              play-sound
+            ];
+            text = builtins.readFile ./bin/board-fzf.sh;
+          };
           board-rofi = pkgs.writeShellApplication {
             name = "board-rofi";
             runtimeInputs = [
