@@ -5,7 +5,7 @@
 
 set -euo pipefail
 
-SOUND_DIR="$HOME/src/sounds/peon"
+SOUND_DIR="$HOME/src/sounds/games/Warcraft III/Units/Orc/Peon"
 
 # Read hook event from stdin JSON
 INPUT=$(cat)
