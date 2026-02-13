@@ -41,10 +41,12 @@
             runtimeInputs = [
               pkgs.coreutils
               pkgs.findutils
+              pkgs.git
+              pkgs.git-annex
               pkgs.gnused
-              pkgs.rofi
               pkgs.mpv
-              pkgs.systemd
+              pkgs.rofi
+              play-sound
             ];
             text = builtins.readFile ./bin/board-rofi.sh;
           };
