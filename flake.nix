@@ -21,8 +21,21 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
+          play-sound = pkgs.writeShellApplication {
+            name = "play-sound";
+            runtimeInputs = [
+              pkgs.coreutils
+              pkgs.git
+              pkgs.git-annex
+              pkgs.mpv
+              pkgs.openssh
+              pkgs.rsync
+            ];
+            text = builtins.readFile ./bin/play-sound.sh;
+          };
         in
         {
+          inherit play-sound;
           board-rofi = pkgs.writeShellApplication {
             name = "board-rofi";
             runtimeInputs = [
